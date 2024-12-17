@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get User ID</title>
+    <script>
+        function sendUserId() {
+            // Lấy user_id từ URL, ví dụ: ?user_id=12345
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('user_id') || "default_user";
+
+            // Gửi user_id về Thunkable qua postMessage
+            window.ReactNativeWebView.postMessage(userId);
+        }
+
+        // Gọi hàm khi trang tải xong
+        window.onload = sendUserId;
+    </script>
+</head>
+<body>
+    <h2>Đang gửi User ID...</h2>
+</body>
+</html>
